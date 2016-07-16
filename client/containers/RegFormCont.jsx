@@ -1,7 +1,11 @@
-import { connect } from 'react-redux'
-import { attemptRegistration, registrationFormChange } from '../actions'
-import CreateAcc from '../components/CreateAcc'
+import { connect } from 'react-redux';
+import { registrationFormActions,  } from '../actions';
+import { validateRegistration } from '../actions/validators/registration';
+import CreateAcc from '../components/CreateAcc';
 import { List, Map, fromJS } from 'immutable';
+
+console.log(registrationFormActions);
+const { attemptRegistration, registrationFormChange } = registrationFormActions;
 
 const mapStateToProps = (state) => {
   return {
