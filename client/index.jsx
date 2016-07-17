@@ -9,7 +9,7 @@ import reducers from './reducers'
 import { updateForm } from './actions';
 import { Router, Route, IndexRoute, browserHistory, Link, withRouter } from 'react-router';
 import { routerMiddleware, push } from 'react-router-redux'
-
+import styles from './styles/login.scss';
 
 // Use _key instead of _k.
 let history = createHistory({
