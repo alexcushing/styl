@@ -1,3 +1,5 @@
-body {
-  background-color: black;
+@import 'colors';
+
+h1 {
+  color: $header-color;
 }

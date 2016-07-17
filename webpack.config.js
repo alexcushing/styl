@@ -1,6 +1,5 @@
-const path    = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path    = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   entry:  [
@@ -9,6 +8,7 @@ module.exports = {
     './client'
   ],
   output: {
+    publicPath: "http://localhost:8080/assets",
     path:     path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
@@ -24,18 +24,14 @@ module.exports = {
         loaders: ['react-hot', 'babel']
       },
       {
-         test: /\.scss$/,
-         loader: ExtractTextPlugin.extract(
-             'style', // The backup style loader
-             'css?sourceMap!sass?sourceMap'
-         )
-       }
+        test: /\.scss$/,
+        loaders: [ 'style', 'css?sourceMap', 'sass?sourceMap' ]
+      }
     ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new ExtractTextPlugin('dist/[name].css')
+    new webpack.NoErrorsPlugin()
   ],
   devtool: 'inline-source-map',
   devServer: {
