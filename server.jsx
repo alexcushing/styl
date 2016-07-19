@@ -103,7 +103,6 @@ app.post('/login', (req, res, next) => {
 });
 
 app.get('/getUser', (req, res) => {
-  console.log(req.user);
   res.send(req.user);
 });
 
